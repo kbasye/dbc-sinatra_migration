@@ -1,0 +1,238 @@
+--
+-- PostgreSQL database dump
+--
+
+SET statement_timeout = 0;
+SET client_encoding = 'UTF8';
+SET standard_conforming_strings = on;
+SET check_function_bodies = false;
+SET client_min_messages = warning;
+
+--
+-- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: 
+--
+
+CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+--
+-- Name: EXTENSION plpgsql; Type: COMMENT; Schema: -; Owner: 
+--
+
+COMMENT ON EXTENSION plpgsql IS 'PL/pgSQL procedural language';
+
+
+SET search_path = public, pg_catalog;
+
+SET default_tablespace = '';
+
+SET default_with_oids = false;
+
+--
+-- Name: articles; Type: TABLE; Schema: public; Owner: apprentice; Tablespace: 
+--
+
+CREATE TABLE articles (
+    id integer NOT NULL,
+    title character varying(255),
+    description text,
+    url character varying(255),
+    category character varying(255),
+    tags character varying(255)
+);
+
+
+ALTER TABLE public.articles OWNER TO apprentice;
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE; Schema: public; Owner: apprentice
+--
+
+CREATE SEQUENCE articles_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+ALTER TABLE public.articles_id_seq OWNER TO apprentice;
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: apprentice
+--
+
+ALTER SEQUENCE articles_id_seq OWNED BY articles.id;
+
+
+--
+-- Name: schema_migrations; Type: TABLE; Schema: public; Owner: apprentice; Tablespace: 
+--
+
+CREATE TABLE schema_migrations (
+    version character varying(255) NOT NULL
+);
+
+
+ALTER TABLE public.schema_migrations OWNER TO apprentice;
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: apprentice
+--
+
+ALTER TABLE ONLY articles ALTER COLUMN id SET DEFAULT nextval('articles_id_seq'::regclass);
+
+
+--
+-- Data for Name: articles; Type: TABLE DATA; Schema: public; Owner: apprentice
+--
+
+COPY articles (id, title, description, url, category, tags) FROM stdin;
+1	nulla ut dolore	Beatae necessitatibus quas voluptas aut facilis ipsum tempora. Quo suscipit culpa dolorem tempora nostrum molestiae officiis. Voluptatem non dolorum. Tempore eveniet natus aut.	articles/3/19/2013/nulla-ut-dolore	programming	random, music, cloud
+2	recusandae officia voluptas	Iusto voluptate quam et voluptas. Neque doloribus veritatis accusantium laborum nihil nesciunt. Aspernatur non eius eum nisi voluptatem dolores. Possimus autem fugiat ab qui voluptatem voluptatibus minima. Molestiae minima maiores aperiam et unde facere.	articles/3/19/2013/recusandae-officia-voluptas	programming	computer, random
+3	et voluptatum numquam	Facere placeat quia. Suscipit quia temporibus. Asperiores beatae expedita quo.	articles/3/19/2013/et-voluptatum-numquam	HEALTH	love, ruby, art
+4	ducimus odio dignissimos	Sapiente necessitatibus tenetur ut amet error. Vitae quia quod ut at dignissimos iure. Voluptas maxime repudiandae impedit deserunt nihil laudantium. Aperiam velit consectetur nam fuga aut.	articles/3/19/2013/ducimus-odio-dignissimos	sport	art, hate, random
+5	aut maxime amet	Et cum assumenda impedit sed sunt et. Eius illum assumenda voluptatibus nemo inventore. Est rerum quo quos praesentium expedita quis. Et odit omnis et asperiores.	articles/3/19/2013/aut-maxime-amet	business	widget
+6	sequi eaque molestiae	Perferendis ut dolor. Deserunt pariatur et. Inventore mollitia vel placeat excepturi quia similique.	articles/3/19/2013/sequi-eaque-molestiae	sport	art, love
+7	perferendis itaque architecto	Magnam quo voluptatem sint eum. Qui est non rerum error provident minima minus. Quia id voluptatem placeat eos. Quo facilis neque sunt molestiae.	articles/3/19/2013/perferendis-itaque-architecto	Business	ruby, tech
+8	vero et eveniet	Reprehenderit numquam ut sit incidunt ut minima quis. Eveniet consequatur fugiat voluptatum cupiditate adipisci ad. Omnis et asperiores voluptate.	articles/3/19/2013/vero-et-eveniet	business	hate, cloud
+9	sapiente consequuntur quo	Et ducimus ratione in velit consequuntur dolor. Similique ut ipsam deserunt et tempore enim. Quas totam explicabo.	articles/3/19/2013/sapiente-consequuntur-quo	Business	hate, computer, tech
+10	et est ipsam	Expedita minima fuga cupiditate quo numquam a. Rerum sunt esse culpa similique laboriosam voluptatum. Quam voluptas aut expedita repellat.	articles/3/19/2013/et-est-ipsam	programming	hate, computer
+11	ipsam explicabo delectus	Molestiae ipsum cumque. Consequatur cupiditate veniam possimus quam exercitationem quisquam. Recusandae magnam sint velit.	articles/3/19/2013/ipsam-explicabo-delectus	programming	cloud, widget, hate
+12	beatae nulla quisquam	A voluptatum odio odit aperiam. Rerum itaque assumenda in sequi amet. Animi hic quos voluptas voluptates vitae quod. Aliquid quia rerum.	articles/3/19/2013/beatae-nulla-quisquam	sport	cloud, rails
+13	commodi eum non	Laudantium quia cupiditate. Nesciunt consectetur omnis quia voluptate aut. Quidem magni et rerum.	articles/3/19/2013/commodi-eum-non	business	ruby, random-tags
+14	et est rem	Et ducimus possimus accusamus sed aut quos aspernatur. Neque tempore aut animi inventore necessitatibus. Laudantium explicabo unde. Voluptas et enim cupiditate.	articles/3/19/2013/et-est-rem	HEALTH	jquery, love
+15	recusandae sunt nihil	Repellendus quisquam aut. Soluta accusamus qui. Ut sit accusamus sed aut eius ab. Autem ea et at sunt.	articles/3/19/2013/recusandae-sunt-nihil	computer world	
+16	sunt quia sit	Qui ipsa vero aperiam voluptatem fugiat. Sit non rerum nulla rerum. Id maiores qui velit voluptatibus cumque vel. Consequatur non et. Officia veritatis qui aspernatur commodi aut aperiam.	articles/3/19/2013/sunt-quia-sit	computer-world	medicine, random-tags, tech
+17	doloribus sit possimus	Aut est non. Sed laborum aspernatur et. Et et nihil repellat assumenda saepe veniam.	articles/3/19/2013/doloribus-sit-possimus	Sports	medicine, cloud, cloud
+18	qui qui est	Non natus non dignissimos aspernatur. Et non exercitationem nam natus modi et. In quasi rerum. Ducimus officiis doloribus expedita aut consequatur vero. Aut molestiae sit sint non qui temporibus repudiandae.	articles/3/19/2013/qui-qui-est	Sports	
+19	pariatur accusantium quia	Et sunt debitis est. Sint delectus quos occaecati ipsa dolore. Est tenetur culpa sed aliquid. Nisi pariatur temporibus autem.	articles/3/19/2013/pariatur-accusantium-quia	HEALTH	love, computer
+20	reiciendis numquam molestiae	Cupiditate sequi eum omnis et. Facere impedit commodi sed quasi ea similique. Quia et nihil nisi vel vitae quod. Maiores voluptas ut ad. Vel placeat dolorem deleniti ipsam cum voluptatem.	articles/3/19/2013/reiciendis-numquam-molestiae	sport	
+21	quasi nihil et	Et sint eos impedit. Esse necessitatibus eos sint aspernatur sed nisi consequuntur. Commodi provident nam nemo voluptatem.	articles/3/19/2013/quasi-nihil-et	Business	
+22	nesciunt eos aut	Soluta eius ut eligendi eaque. Placeat qui esse unde ut. Repudiandae aut ut a nesciunt ut. Velit quae nam earum tempore praesentium ab. Et libero tenetur quo porro officia et.	articles/3/19/2013/nesciunt-eos-aut	programming	cloud, art, widget
+23	quia maxime et	Officiis perferendis voluptatem. Et commodi animi perspiciatis est. Molestiae et ex ut at neque quas nemo. Molestias sit quasi ex inventore.	articles/3/19/2013/quia-maxime-et	computer world	jquery, tech, ruby
+24	illo ipsa debitis	Fugiat rerum aut temporibus sit. Laborum natus veniam atque quae ut sed repellendus. Odio repellat quia sit sit. Ut atque ducimus officia qui ipsam cupiditate necessitatibus. Occaecati quia qui sapiente quibusdam commodi.	articles/3/19/2013/illo-ipsa-debitis	computer world	
+25	magni enim perferendis	Voluptas quibusdam autem labore. Quas sapiente nulla magnam labore quaerat. Libero repellat dicta eaque. Aut voluptate laboriosam eaque. Quae velit sunt suscipit quis.	articles/3/19/2013/magni-enim-perferendis	Business	random-tags
+26	enim in est	Neque quidem ut et impedit. Vel voluptates necessitatibus praesentium. Aut eos dolores non ad vitae illum quidem.	articles/3/19/2013/enim-in-est	Sports	music
+27	magni esse dicta	Eos rerum aut odit et ut corporis sequi. Eaque assumenda corporis repellat magnam ipsa ea voluptate. Qui id vel error. Aliquid deleniti officiis ut. Similique totam suscipit corporis.	articles/3/19/2013/magni-esse-dicta	computer world	random, art
+28	eaque eum maxime	Et eum laborum neque. Minima autem molestiae. Cupiditate dicta cum corrupti molestias. Velit quos sequi facere ex non quis vitae.	articles/3/19/2013/eaque-eum-maxime	business	cloud
+29	voluptate assumenda quos	Consequatur vel omnis. Qui voluptas qui reprehenderit expedita. Sit cupiditate velit a. Temporibus consectetur natus ipsum.	articles/3/19/2013/voluptate-assumenda-quos	business	art, jquery
+30	soluta a est	Voluptas cumque pariatur. Earum expedita excepturi qui voluptatem temporibus impedit. Sequi harum non quas voluptatem sit. Molestiae veniam rerum et qui. Architecto at sunt doloribus occaecati voluptas.	articles/3/19/2013/soluta-a-est	programming	ruby, music
+31	earum in necessitatibus	Atque ut et. Porro voluptatum non ad itaque provident. Quaerat corporis adipisci est sit illum sint aut.	articles/3/19/2013/earum-in-necessitatibus	computer world	music
+32	quo reiciendis ab	Non consectetur veniam dolor quasi omnis quod. Adipisci alias dolorum dicta minus placeat voluptatem voluptate. Totam deserunt ab recusandae id voluptatem. Quia laboriosam qui. Neque excepturi dolorum saepe.	articles/3/19/2013/quo-reiciendis-ab	computer-world	computer
+33	iusto inventore perferendis	Asperiores animi quod et vitae. In nesciunt non sit voluptatibus. Soluta reiciendis et. Minus dignissimos assumenda.	articles/3/19/2013/iusto-inventore-perferendis	sport	random-tags, music
+34	facilis sint veritatis	Nobis nesciunt nostrum nisi dolor. Fugit aut voluptate et vitae voluptatem quaerat. At recusandae non expedita. Illum nostrum harum delectus. Necessitatibus aut iste nisi rerum earum vel quae.	articles/3/19/2013/facilis-sint-veritatis	business	tech, random, random-tags
+35	voluptas impedit sed	Corrupti at reprehenderit et quis recusandae quia hic. Omnis iste accusamus id ab minus. Architecto consectetur ipsam ducimus aut est. Pariatur in nisi saepe molestiae error veniam.	articles/3/19/2013/voluptas-impedit-sed	HEALTH	random-tags
+36	omnis nesciunt quia	Quaerat quo animi iste qui nam. Placeat quo iure iusto quia. Voluptas dolorem voluptatum dolores minima iste. Nesciunt cumque ea voluptatum deserunt. At ratione nihil sit quia.	articles/3/19/2013/omnis-nesciunt-quia	programming	rails
+37	consequatur quo ad	Error est nesciunt enim nisi sit laboriosam sed. Ducimus voluptates ipsa minima autem aliquam modi voluptatem. Tempora ab molestias vel officiis ea. In possimus voluptatem.	articles/3/19/2013/consequatur-quo-ad	computer-world	hate, random-tags, cloud
+38	ullam corrupti voluptatum	Quod nobis sequi et quo vel nam repellendus. Est numquam nihil aperiam. Eos explicabo quisquam laborum aut soluta veniam.	articles/3/19/2013/ullam-corrupti-voluptatum	sport	
+39	et ea animi	Corporis maiores sed facere vel ad a. Omnis consectetur a minus. Itaque at ab a ut amet. Et magni ut quos sed.	articles/3/19/2013/et-ea-animi	sport	hate, random-tags
+40	perferendis suscipit cumque	Doloribus illum recusandae assumenda adipisci minima. Sit eveniet aut vitae. Asperiores eaque harum magnam doloribus consequatur. Vel expedita maiores magnam. Ut libero numquam rerum quia exercitationem laudantium.	articles/3/19/2013/perferendis-suscipit-cumque	Sports	ruby
+41	qui libero voluptates	Dignissimos voluptatem consequatur ut. Voluptas quia aut cupiditate laboriosam omnis fuga recusandae. Consequuntur est saepe dolor. Hic minus facere molestias vitae. Optio facilis error mollitia quasi aut vel.	articles/3/19/2013/qui-libero-voluptates	Business	love, ruby, random-tags
+42	illum officiis laudantium	Impedit nostrum veritatis. Natus atque perspiciatis asperiores ad quas. Laborum accusamus earum dolor voluptatibus. Est blanditiis iste ipsum.	articles/3/19/2013/illum-officiis-laudantium	Sports	jquery, ruby
+43	ipsa quibusdam fugiat	Numquam eius voluptatem. Asperiores dolorem doloremque suscipit. Eveniet eum non assumenda. Maxime ut quo quibusdam et amet aliquam. Consequatur commodi est sed deserunt cum et.	articles/3/19/2013/ipsa-quibusdam-fugiat	HEALTH	
+44	consequuntur error saepe	Tempora deserunt ab temporibus. Repellendus exercitationem saepe possimus. Ea harum tenetur veniam laudantium dolore. Eaque iusto et.	articles/3/19/2013/consequuntur-error-saepe	Business	medicine
+45	porro necessitatibus quia	Temporibus tempore libero ad laudantium consequatur harum. Est quo tempore suscipit numquam quia. Voluptates est recusandae praesentium. Unde doloribus et minima.	articles/3/19/2013/porro-necessitatibus-quia	programming	hate
+46	dolores quis accusantium	Vel excepturi doloribus. Mollitia quae velit architecto nihil quasi debitis. Non veritatis a repellat perspiciatis id nihil. Et rerum id.	articles/3/19/2013/dolores-quis-accusantium	computer-world	computer, jquery, art
+47	maiores qui sed	Odit inventore in modi aut. Et omnis blanditiis qui vel ut illum. Illo non architecto veniam vel consequatur ab.	articles/3/19/2013/maiores-qui-sed	computer-world	cloud, medicine
+48	mollitia esse et	Quas facilis est voluptatum et quod. Omnis quis et aspernatur qui officiis tempora. Ut saepe sed est fugit placeat sed autem. Ratione at laboriosam praesentium sequi dicta.	articles/3/19/2013/mollitia-esse-et	Business	hate, music
+49	dolore odit assumenda	Ab quas laudantium quo ut sit et. Tempore dolorem eius maxime ducimus eligendi. Ad neque consequatur. Similique molestiae iure asperiores et porro. Sed sequi qui sint pariatur facere quis.	articles/3/19/2013/dolore-odit-assumenda	Sports	jquery, rails
+50	eaque corporis et	Ipsa quas ea sed quos. Nulla praesentium non vitae dolorem. Nihil deserunt adipisci eaque. Numquam saepe eveniet rerum voluptates.	articles/3/19/2013/eaque-corporis-et	Business	cloud, random, jquery
+51	aut omnis alias	Et harum eos enim. A quisquam et vero quidem optio mollitia voluptatem. Beatae incidunt quia impedit. Omnis eius est. Dolor vel id quidem.	articles/4/9/2013/aut-omnis-alias	business	
+52	nostrum vero neque	Corporis velit et provident ut. Quod recusandae officiis enim rerum accusamus inventore. Adipisci vitae magni id molestiae sequi.	articles/4/9/2013/nostrum-vero-neque	programming	
+53	quo voluptatibus assumenda	Est quae et. Architecto a sit maiores at nostrum molestiae. Explicabo corrupti iste excepturi. Dolor non quam mollitia.	articles/4/9/2013/quo-voluptatibus-assumenda	computer world	computer
+54	libero iste adipisci	Vero praesentium aut reiciendis quis qui aut. Libero alias fugiat quos et accusamus. Ipsam et consequatur sapiente dolore. Veritatis quo a exercitationem. Velit corrupti id minima suscipit libero.	articles/4/9/2013/libero-iste-adipisci	Sports	random, computer, random-tags
+55	qui odit ducimus	Eveniet ducimus excepturi. Veritatis nesciunt reprehenderit vel recusandae similique soluta. Et odio libero non rerum sunt. Quibusdam commodi atque dolorem.	articles/4/9/2013/qui-odit-ducimus	sport	jquery, love
+56	aspernatur laudantium amet	Optio aut tempore temporibus facere harum. Id et quos. Vel quod facere ipsa deserunt. Quia laboriosam minus ut aut ipsam fugiat doloribus. Deserunt qui temporibus.	articles/4/9/2013/aspernatur-laudantium-amet	programming	jquery
+57	ullam ut voluptas	Quia libero aut sunt magnam et. Sed tempore voluptas nostrum ut occaecati enim. Soluta exercitationem et ratione libero pariatur ullam.	articles/4/9/2013/ullam-ut-voluptas	computer world	rails, cloud, ruby
+58	at officia totam	Tempore perspiciatis aut aliquam. Autem accusamus alias sint similique. Nesciunt nam quia quia mollitia.	articles/4/9/2013/at-officia-totam	HEALTH	random, love
+59	ad voluptates quidem	Iure atque occaecati soluta omnis eligendi. Assumenda sed consequatur reprehenderit repellat voluptatibus. Dolores et velit saepe.	articles/4/9/2013/ad-voluptates-quidem	computer world	jquery, hate
+60	odio qui sit	Exercitationem suscipit est est at quas voluptate et. Laboriosam odit sint. Molestiae dolorem et. Adipisci ut autem et.	articles/4/9/2013/odio-qui-sit	HEALTH	
+61	explicabo error iusto	Consequatur facere aperiam magni consequuntur qui. Eum animi amet voluptate quasi. Vel minima et laboriosam necessitatibus. Dolores aliquid dolorem et modi maxime.	articles/4/9/2013/explicabo-error-iusto	business	
+62	suscipit ipsam non	Molestias praesentium voluptatem quisquam tenetur iusto consequuntur ut. Autem consequatur delectus ea. Qui id nisi nihil veritatis sed. Dolores distinctio voluptatum modi recusandae. Ex quod sed quia voluptatem aspernatur et quaerat.	articles/4/9/2013/suscipit-ipsam-non	Business	ruby, jquery, tech
+63	quaerat enim consequatur	Itaque harum molestias quo nam neque hic. Eaque odio illum fugiat perferendis. Voluptatem unde laudantium iure. Qui consequatur quas autem voluptatem hic perferendis itaque. Eum voluptate at architecto ab molestias necessitatibus.	articles/4/9/2013/quaerat-enim-consequatur	computer world	cloud, ruby, art
+64	ipsam dolorum optio	Blanditiis id laboriosam. Repellat vel non sed in veritatis. Aliquid laudantium quam et repudiandae fugiat sed. Voluptate ullam qui repellat eos laborum voluptatem corrupti. Maxime quis iusto nam voluptatem beatae cumque consequuntur.	articles/4/9/2013/ipsam-dolorum-optio	Business	music
+65	asperiores fugit porro	Et necessitatibus cumque earum nulla excepturi consequuntur. Nihil exercitationem suscipit quidem autem. Culpa quia eos harum.	articles/4/9/2013/asperiores-fugit-porro	sport	computer, tech
+66	soluta ut ad	Facilis tempora culpa libero quia nam. Eum officia et. Quod magni iusto doloribus sint. Aut ullam nihil quis tempora non dolorem. Voluptatibus culpa id temporibus quibusdam.	articles/4/9/2013/soluta-ut-ad	Sports	tech, ruby
+67	eum perferendis ut	Qui quia dolorem. Architecto optio nisi voluptas id placeat sit voluptate. Dolorum occaecati et fuga adipisci explicabo. Sed hic commodi necessitatibus ullam.	articles/4/9/2013/eum-perferendis-ut	programming	tech, cloud, cloud
+68	quia est quasi	Accusamus deserunt nostrum eos voluptatem praesentium. Nihil velit incidunt pariatur maiores dolores sed. Cum iure cupiditate sunt recusandae modi. Accusamus expedita dolor provident non et molestiae. Sapiente nesciunt hic.	articles/4/9/2013/quia-est-quasi	computer-world	tech, widget
+69	porro eligendi consequatur	Odio eos dignissimos dolorem illo. Sed dicta voluptatem. At eligendi est vero.	articles/4/9/2013/porro-eligendi-consequatur	computer-world	
+70	necessitatibus recusandae a	A optio dolore et placeat labore nesciunt. Sit eum itaque voluptatem voluptatibus animi molestiae non. Culpa laboriosam vitae debitis ut rerum doloribus. Nihil temporibus ut aut totam ullam. Earum et sequi et cum laborum ut nemo.	articles/4/9/2013/necessitatibus-recusandae-a	programming	
+71	quo nihil eum	Delectus facere reiciendis. Magni voluptatum cupiditate. Distinctio officia sit porro. Quam qui vel magni voluptas qui.	articles/4/9/2013/quo-nihil-eum	Business	love
+72	rerum excepturi deserunt	In est similique consequatur saepe aut. Non et culpa magni itaque rerum. Dolore nisi dicta qui.	articles/4/9/2013/rerum-excepturi-deserunt	business	
+73	quo voluptatem tempora	Magni impedit est tempore. Et facere vel consequatur quia est. Est sit sit iste est quia quo. Aperiam quis et eveniet cupiditate exercitationem rerum est. Minima asperiores totam aut nihil saepe iusto.	articles/4/9/2013/quo-voluptatem-tempora	computer world	love
+74	ut quo vero	Non perspiciatis non aut molestiae. Ad vel molestiae officiis vitae enim. Et enim ea quo quasi dolorum.	articles/4/9/2013/ut-quo-vero	programming	hate, medicine
+75	magni ut tenetur	Voluptatibus expedita sed in ea autem dolor amet. Eveniet temporibus explicabo autem soluta. Aspernatur delectus exercitationem pariatur sunt eaque non. Qui ullam itaque sed qui. Voluptatem a ea in omnis.	articles/4/9/2013/magni-ut-tenetur	Business	
+76	pariatur consectetur modi	Est occaecati cupiditate. Rerum eos vitae. Laudantium aliquid fugit. Dolorem vel illum saepe.	articles/4/9/2013/pariatur-consectetur-modi	HEALTH	medicine, widget
+77	ut et impedit	Quis nostrum est minima minus architecto. Et atque aperiam. Temporibus voluptatum laudantium molestiae possimus delectus voluptatem aliquam.	articles/4/9/2013/ut-et-impedit	Sports	ruby, jquery, tech
+78	debitis eius minima	Rerum quidem eaque dolorum. Aliquid unde corrupti cum. Consectetur et nobis. Quod voluptatum fugit.	articles/4/9/2013/debitis-eius-minima	HEALTH	random, art, random-tags
+79	at qui dolores	Sapiente rem laboriosam dolorem incidunt voluptatem. Nulla voluptatem velit omnis consequatur incidunt nostrum. Atque et quo laudantium labore quo.	articles/4/9/2013/at-qui-dolores	programming	
+80	sit quibusdam corporis	Provident molestiae sint sequi. Aperiam et quis sed ut vel. Aut qui consequatur animi.	articles/4/9/2013/sit-quibusdam-corporis	Sports	
+81	consequuntur adipisci unde	Officiis dolores blanditiis delectus adipisci hic. Sapiente doloribus adipisci suscipit. Molestias excepturi et sapiente totam mollitia illum ut. Ullam ut omnis et. Architecto sapiente dolorem dicta.	articles/4/9/2013/consequuntur-adipisci-unde	sport	random-tags
+82	omnis qui nesciunt	Non eos quibusdam corporis nemo doloribus fugiat. Autem at temporibus dolorum ut. Ex aliquid aspernatur assumenda illo impedit ut nostrum. Porro quas repellat dolore fugit est.	articles/4/9/2013/omnis-qui-nesciunt	Sports	
+83	maiores repellat quia	Cupiditate ut aspernatur reprehenderit ab. Nobis qui culpa sapiente et consequuntur. Sunt quis possimus. Molestiae sit iusto voluptatum. Aut voluptatem neque dolor.	articles/4/9/2013/maiores-repellat-quia	Sports	art, jquery
+84	quia quia eos	Quia porro et et labore laborum. Labore numquam quia aut rerum voluptatem repellendus suscipit. Pariatur est aspernatur perferendis officiis. Est aliquam blanditiis nulla voluptatum et ut molestiae. Laboriosam qui illum dolor accusantium qui.	articles/4/9/2013/quia-quia-eos	sport	medicine
+85	saepe sed dolores	In quaerat dicta. Suscipit veniam nostrum sit maxime quas adipisci. Occaecati nihil sed corrupti. Dolorum error assumenda et praesentium aut quia. Quia error ratione aut et qui rerum.	articles/4/9/2013/saepe-sed-dolores	Sports	random
+86	laboriosam ab aut	Possimus nisi maxime error. Nisi tempore numquam. Ut numquam aut impedit distinctio quia. Dolorem doloremque earum quam aut. Facilis animi ipsa.	articles/4/9/2013/laboriosam-ab-aut	business	love, jquery, computer
+87	accusamus necessitatibus nobis	Ducimus possimus reiciendis sint est mollitia necessitatibus. Aspernatur eum sed velit beatae. Cupiditate sed omnis quas amet.	articles/4/9/2013/accusamus-necessitatibus-nobis	business	hate
+88	voluptas odit natus	Ex sit facilis. Occaecati aliquid fugit aut officia libero provident. Ut soluta aut in. Soluta eaque exercitationem. Dicta magnam quaerat.	articles/4/9/2013/voluptas-odit-natus	programming	
+89	non ratione labore	Qui veritatis molestias. Voluptate perferendis provident dignissimos soluta incidunt explicabo. Quis pariatur incidunt tempore ipsa eveniet. Suscipit quo vitae corrupti eius.	articles/4/9/2013/non-ratione-labore	computer world	random-tags
+90	voluptatem ea accusantium	Vel et ut eum et cum. Ipsa ipsam temporibus. Voluptas velit reiciendis rerum ipsam. Provident cum tempora et debitis. Voluptatibus sequi consequuntur qui atque voluptas cumque tempore.	articles/4/9/2013/voluptatem-ea-accusantium	sport	music, ruby
+91	aliquid consectetur dolores	Delectus inventore repudiandae vel. Est quisquam alias aut. Velit vel nihil dolore. Et repellendus incidunt.	articles/4/9/2013/aliquid-consectetur-dolores	sport	
+92	consequatur doloremque hic	Placeat labore veniam est sed consequatur dolorem. Sit sapiente magni. Ea in assumenda voluptatem eum nam omnis.	articles/4/9/2013/consequatur-doloremque-hic	HEALTH	random
+93	iste rem qui	Recusandae incidunt dicta perferendis. Autem magnam mollitia blanditiis quasi eos animi. Amet asperiores quia et voluptate. Ipsa eius velit sint delectus. Optio aut tempora cum non voluptatibus ab dolorem.	articles/4/9/2013/iste-rem-qui	sport	ruby, computer
+94	possimus laborum dicta	Et accusantium doloribus amet ut pariatur velit distinctio. Nisi autem et alias ea laudantium aut quis. Incidunt facilis beatae eum ut. Dolore quas et fugiat.	articles/4/9/2013/possimus-laborum-dicta	computer world	ruby
+95	est ut laborum	Assumenda vel aut. Non itaque aliquam suscipit vel cum. Itaque eaque perferendis magnam. Accusamus enim assumenda.	articles/4/9/2013/est-ut-laborum	HEALTH	medicine
+96	suscipit et quia	Impedit natus rem sed consequatur rerum quae et. Incidunt maiores sint. Officiis qui quasi.	articles/4/9/2013/suscipit-et-quia	Business	cloud, computer, hate
+97	sed qui maiores	Quia et vitae commodi qui quod. Quis excepturi accusamus voluptate maiores. In sit dolorum autem. Quis dolores omnis tenetur quibusdam error illo. Quis voluptatem enim voluptas consequatur tempore quibusdam.	articles/4/9/2013/sed-qui-maiores	computer-world	art
+98	porro quasi id	Dignissimos quas quo rem est qui iste voluptatum. Ipsa cupiditate sequi. Ea magni maxime quod occaecati. Nam et et aspernatur rerum. Quia repellat qui sit earum quam dolore voluptatum.	articles/4/9/2013/porro-quasi-id	Sports	ruby, random-tags
+99	ut vel aperiam	Laborum soluta sit veniam. Neque et mollitia et quia sed reprehenderit. At libero voluptates. Non aut nam tempora incidunt. Odio dolorum quia cumque.	articles/4/9/2013/ut-vel-aperiam	Sports	computer, rails, tech
+100	dolores dolor corporis	Iusto totam voluptatem similique minus minima accusantium. Magnam et perferendis id qui. Voluptatem dolores perspiciatis ipsum qui aliquam.	articles/4/9/2013/dolores-dolor-corporis	business	jquery
+\.
+
+
+--
+-- Name: articles_id_seq; Type: SEQUENCE SET; Schema: public; Owner: apprentice
+--
+
+SELECT pg_catalog.setval('articles_id_seq', 100, true);
+
+
+--
+-- Data for Name: schema_migrations; Type: TABLE DATA; Schema: public; Owner: apprentice
+--
+
+COPY schema_migrations (version) FROM stdin;
+20130311183138
+\.
+
+
+--
+-- Name: articles_pkey; Type: CONSTRAINT; Schema: public; Owner: apprentice; Tablespace: 
+--
+
+ALTER TABLE ONLY articles
+    ADD CONSTRAINT articles_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: unique_schema_migrations; Type: INDEX; Schema: public; Owner: apprentice; Tablespace: 
+--
+
+CREATE UNIQUE INDEX unique_schema_migrations ON schema_migrations USING btree (version);
+
+
+--
+-- Name: public; Type: ACL; Schema: -; Owner: apprentice
+--
+
+REVOKE ALL ON SCHEMA public FROM PUBLIC;
+REVOKE ALL ON SCHEMA public FROM apprentice;
+GRANT ALL ON SCHEMA public TO apprentice;
+GRANT ALL ON SCHEMA public TO PUBLIC;
+
+
+--
+-- PostgreSQL database dump complete
+--
+

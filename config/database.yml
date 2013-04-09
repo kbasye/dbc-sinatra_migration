@@ -1,0 +1,11 @@
+development:
+  adapter: postgresql
+  database: sweet_articles_dev
+  pool: 5
+  timeout: 5000
+
+test:
+  adapter: postgresql
+  database: sweet_articles_test
+  pool: 5
+  timeout: 5000

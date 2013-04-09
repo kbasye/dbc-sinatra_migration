@@ -1,0 +1,9 @@
+
+
+
+  <% @categories.each do |category| %>
+    <p>
+      <%=link_to category.title, cat_name_path(category.title) %>
+    </p>
+  <% end %>
+

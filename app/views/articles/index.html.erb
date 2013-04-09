@@ -1,0 +1,10 @@
+<h1><%= @category.title %></h1>
+<ul>
+
+  <% @category.articles.each do |article| %>
+
+   <li><%= link_to article.title, category_article_path(article.category.title, article.url) %></li>
+
+
+  <% end %>
+</ul>
